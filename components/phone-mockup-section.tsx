@@ -1,8 +1,39 @@
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, AlertTriangle, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { MapPin, AlertTriangle, Users, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 
 export function PhoneMockupSection() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const [currentScreenshot, setCurrentScreenshot] = useState<'light' | 'dark'>('light')
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Update screenshot based on theme
+  useEffect(() => {
+    if (mounted) {
+      setCurrentScreenshot(theme === 'dark' ? 'dark' : 'light')
+    }
+  }, [theme, mounted])
+
+  if (!mounted) {
+    return null // Avoid hydration mismatch
+  }
+
+  const screenshots = {
+    light: "/app-screenshots/WhatsApp Image 2025-09-28 at 14.26.27_64da6d41-light -mode.jpg",
+    dark: "/app-screenshots/WhatsApp Image 2025-09-28 at 14.12.13_8e37bf58.jpg"
+  }
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +47,7 @@ export function PhoneMockupSection() {
               alerts, track safe routes, and stay connected with your community.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-secondary/10">
                   <MapPin className="h-5 w-5 text-secondary" />
@@ -47,6 +78,31 @@ export function PhoneMockupSection() {
                 </div>
               </div>
             </div>
+
+            {/* Theme Toggle for Screenshots */}
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground">View app in:</span>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant={currentScreenshot === 'light' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setCurrentScreenshot('light')}
+                  className="flex items-center gap-2"
+                >
+                  <Sun className="h-4 w-4" />
+                  Light
+                </Button>
+                <Button
+                  variant={currentScreenshot === 'dark' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setCurrentScreenshot('dark')}
+                  className="flex items-center gap-2"
+                >
+                  <Moon className="h-4 w-4" />
+                  Dark
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="flex justify-center">
@@ -54,56 +110,16 @@ export function PhoneMockupSection() {
               {/* Phone Frame */}
               <div className="w-80 h-[600px] bg-primary rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-background rounded-[2.5rem] overflow-hidden">
-                  {/* Status Bar */}
-                  <div className="flex justify-between items-center px-6 py-3 bg-muted/30">
-                    <span className="text-sm font-medium">9:41</span>
-                    <div className="flex gap-1">
-                      <div className="w-4 h-2 bg-primary rounded-sm" />
-                      <div className="w-4 h-2 bg-primary rounded-sm" />
-                      <div className="w-4 h-2 bg-muted rounded-sm" />
-                    </div>
-                  </div>
-
-                  {/* App Content */}
-                  <div className="p-4 space-y-4">
-                    {/* Header */}
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-space-grotesk font-bold text-lg">SafetyShare</h3>
-                      <Badge variant="secondary" className="bg-green-100 text-green-800">
-                        Safe Zone
-                      </Badge>
-                    </div>
-
-                    {/* Emergency Button */}
-                    <Card className="p-6 text-center bg-accent/5 border-accent/20">
-                      <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
-                        <AlertTriangle className="h-10 w-10 text-accent-foreground" />
-                      </div>
-                      <p className="font-semibold text-accent">Emergency SOS</p>
-                      <p className="text-xs text-muted-foreground">Hold for 3 seconds</p>
-                    </Card>
-
-                    {/* Recent Alerts */}
-                    <div>
-                      <h4 className="font-semibold mb-3">Recent Activity</h4>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
-                          <div className="w-2 h-2 bg-green-500 rounded-full" />
-                          <div className="flex-1">
-                            <p className="text-sm font-medium">Safe arrival confirmed</p>
-                            <p className="text-xs text-muted-foreground">2 minutes ago</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
-                          <div className="w-2 h-2 bg-secondary rounded-full" />
-                          <div className="flex-1">
-                            <p className="text-sm font-medium">Route optimized</p>
-                            <p className="text-xs text-muted-foreground">5 minutes ago</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  {/* App Screenshot */}
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={screenshots[currentScreenshot]}
+                      alt={`SafetyShare App - ${currentScreenshot} mode`}
+                      fill
+                      className="object-cover rounded-[2.5rem]"
+                      sizes="(max-width: 320px) 100vw, 320px"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
@@ -114,6 +130,11 @@ export function PhoneMockupSection() {
               </div>
               <div className="absolute -bottom-4 -left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
                 24/7 Active
+              </div>
+              
+              {/* Screenshot Mode Indicator */}
+              <div className="absolute -bottom-4 -right-4 bg-card border border-border px-2 py-1 rounded-full text-xs font-medium shadow-lg">
+                {currentScreenshot === 'light' ? '☀️' : '🌙'} {currentScreenshot} mode
               </div>
             </div>
           </div>
