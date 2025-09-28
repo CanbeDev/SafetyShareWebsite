@@ -30,8 +30,8 @@ export function PhoneMockupSection() {
   }
 
   const screenshots = {
-    light: "/app-screenshots/WhatsApp Image 2025-09-28 at 14.26.27_64da6d41-light -mode.jpg",
-    dark: "/app-screenshots/WhatsApp Image 2025-09-28 at 14.12.13_8e37bf58.jpg"
+    light: "/App-screenshots/PhoneMockup_64da6d41-light -mode.jpg",
+    dark: "/App-screenshots/Phone-Mockup_14_12_3_8e37bf58-DarkMode.jpg"
   }
 
   return (
