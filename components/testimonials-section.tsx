@@ -3,26 +3,26 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "College Student",
+    name: "Thandi Mthembu",
+    role: "University Student - Wits",
     content:
-      "SafetyShare gave me peace of mind walking home late from the library. The AI route suggestions helped me avoid unsafe areas.",
+      "SafetyShare gave me peace of mind walking home late from campus in Johannesburg. The AI route suggestions helped me avoid unsafe areas.",
     rating: 5,
     avatar: "/professional-woman.png",
   },
   {
-    name: "Marcus Rodriguez",
-    role: "Security Manager",
+    name: "Johan van der Merwe",
+    role: "Security Manager - Cape Town",
     content:
-      "The dashboard integration transformed our response times. We can now coordinate with the community in real-time.",
+      "The dashboard integration transformed our response times. We can now coordinate with the community across Cape Town in real-time.",
     rating: 5,
     avatar: "/man-security-professional.jpg",
   },
   {
-    name: "Emily Johnson",
-    role: "Parent",
+    name: "Nomsa Dlamini",
+    role: "Parent - Durban",
     content:
-      "Knowing my teenager has SafetyShare installed gives me incredible peace of mind. The family sharing features are excellent.",
+      "Knowing my teenager has SafetyShare installed gives me incredible peace of mind in Durban. The family sharing features are excellent.",
     rating: 5,
     avatar: "/woman-parent.jpg",
   },
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-8 px-8 py-4 bg-card rounded-full border border-border/50">
             <div className="text-center">
-              <div className="font-space-grotesk font-bold text-2xl text-secondary">50K+</div>
+              <div className="font-space-grotesk font-bold text-2xl text-secondary">12K+</div>
               <div className="text-sm text-muted-foreground">Active Users</div>
             </div>
             <div className="w-px h-8 bg-border" />

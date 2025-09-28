@@ -175,7 +175,7 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-4 text-sm text-primary-foreground/80">
-              <span>Made with ❤️ for safer communities</span>
+              <span>Made with ❤️ in South Africa 🇿🇦 for safer communities</span>
               <Link href="/dashboard" className="hover:text-primary-foreground transition-colors">
                 Security Dashboard
               </Link>

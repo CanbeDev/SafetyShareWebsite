@@ -43,12 +43,12 @@ export function AboutSection() {
             Our Mission
           </Badge>
           <h2 className="font-space-grotesk font-bold text-3xl sm:text-4xl text-balance mb-6">
-            Building Safer Communities Through Technology
+            Building Safer Communities Across South Africa
           </h2>
           <p className="text-xl text-muted-foreground text-balance max-w-4xl mx-auto leading-relaxed">
-            SafetyShare was founded on the belief that everyone deserves to feel safe in their community. We combine
-            cutting-edge AI technology with the power of community collaboration to create a comprehensive safety
-            network that protects individuals and strengthens neighborhoods.
+            SafetyShare is proudly South African, founded on the belief that everyone deserves to feel safe in their community. 
+            We combine cutting-edge AI technology with the power of community collaboration to create a comprehensive safety
+            network that protects individuals and strengthens neighborhoods from Cape Town to Johannesburg.
           </p>
         </div>
 
@@ -124,11 +124,11 @@ export function AboutSection() {
             <div className="bg-gradient-to-br from-secondary/10 via-accent/5 to-primary/10 rounded-2xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="font-space-grotesk font-bold text-3xl text-secondary mb-2">150+</div>
-                  <div className="text-sm text-muted-foreground">Cities Covered</div>
+                  <div className="font-space-grotesk font-bold text-3xl text-secondary mb-2">25+</div>
+                  <div className="text-sm text-muted-foreground">SA Cities Covered</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-space-grotesk font-bold text-3xl text-accent mb-2">50K+</div>
+                  <div className="font-space-grotesk font-bold text-3xl text-accent mb-2">12K+</div>
                   <div className="text-sm text-muted-foreground">Lives Protected</div>
                 </div>
                 <div className="text-center">

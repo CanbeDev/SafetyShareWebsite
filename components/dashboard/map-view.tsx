@@ -4,9 +4,9 @@ import { Badge } from "@/components/ui/badge"
 import { MapPin, AlertTriangle, Users, Maximize2 } from "lucide-react"
 
 const alerts = [
-  { id: 1, lat: 40.7128, lng: -74.006, type: "emergency", severity: "high" },
-  { id: 2, lat: 40.7589, lng: -73.9851, type: "incident", severity: "medium" },
-  { id: 3, lat: 40.7505, lng: -73.9934, type: "safety", severity: "low" },
+  { id: 1, lat: -26.2041, lng: 28.0473, type: "emergency", severity: "high" },
+  { id: 2, lat: -26.1367, lng: 28.0835, type: "incident", severity: "medium" },
+  { id: 3, lat: -26.1715, lng: 28.0293, type: "safety", severity: "low" },
 ]
 
 export function MapView() {
@@ -86,7 +86,7 @@ export function MapView() {
             </div>
             <div className="flex items-center gap-1">
               <MapPin className="h-4 w-4" />
-              <span>NYC Metro</span>
+              <span>Johannesburg</span>
             </div>
           </div>
           <Badge variant="secondary">Live</Badge>

@@ -82,7 +82,7 @@ export function ContactSection() {
                     <p className="text-sm text-muted-foreground">24/7 emergency support</p>
                   </div>
                 </div>
-                <p className="text-sm">+1 (555) 123-SAFE</p>
+                <p className="text-sm">+27 11 123-SAFE</p>
                 <p className="text-xs text-muted-foreground mt-1">Available 24/7</p>
               </CardContent>
             </Card>
@@ -99,8 +99,8 @@ export function ContactSection() {
                   </div>
                 </div>
                 <p className="text-sm">123 Safety Street</p>
-                <p className="text-sm">New York, NY 10001</p>
-                <p className="text-xs text-muted-foreground mt-1">Mon-Fri, 9AM-6PM EST</p>
+                <p className="text-sm">Johannesburg, 2000</p>
+                <p className="text-xs text-muted-foreground mt-1">Mon-Fri, 9AM-6PM SAST</p>
               </CardContent>
             </Card>
 

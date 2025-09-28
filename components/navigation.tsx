@@ -27,14 +27,14 @@ export function Navigation() {
             <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
               Features
             </Link>
+            <Link href="/premium" className="text-muted-foreground hover:text-foreground transition-colors">
+              Premium
+            </Link>
             <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
-            <Link href="#download" className="text-muted-foreground hover:text-foreground transition-colors">
-              Download
-            </Link>
-            <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+            <Link href="/security-partners" className="text-muted-foreground hover:text-foreground transition-colors">
+              Partners
             </Link>
             <Link href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
               Dashboard
@@ -52,8 +52,11 @@ export function Navigation() {
               <span className="sr-only">Toggle theme</span>
             </Button>
 
-            <Button asChild className="bg-secondary hover:bg-secondary/90">
+            <Button asChild variant="outline">
               <Link href="/dashboard/login">Sign In</Link>
+            </Button>
+            <Button asChild className="bg-secondary hover:bg-secondary/90">
+              <Link href="/premium">Go Premium</Link>
             </Button>
           </div>
 
@@ -87,6 +90,13 @@ export function Navigation() {
                 Features
               </Link>
               <Link
+                href="/premium"
+                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={toggleMenu}
+              >
+                Premium
+              </Link>
+              <Link
                 href="#about"
                 className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                 onClick={toggleMenu}
@@ -94,18 +104,11 @@ export function Navigation() {
                 About
               </Link>
               <Link
-                href="#download"
+                href="/security-partners"
                 className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                 onClick={toggleMenu}
               >
-                Download
-              </Link>
-              <Link
-                href="#contact"
-                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                onClick={toggleMenu}
-              >
-                Contact
+                Partners
               </Link>
               <Link
                 href="/dashboard"
@@ -114,9 +117,12 @@ export function Navigation() {
               >
                 Dashboard
               </Link>
-              <div className="px-3 py-2">
-                <Button asChild className="w-full bg-secondary hover:bg-secondary/90">
+              <div className="px-3 py-2 space-y-2">
+                <Button asChild variant="outline" className="w-full">
                   <Link href="/dashboard/login">Sign In</Link>
+                </Button>
+                <Button asChild className="w-full bg-secondary hover:bg-secondary/90">
+                  <Link href="/premium">Go Premium</Link>
                 </Button>
               </div>
             </div>

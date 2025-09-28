@@ -12,8 +12,8 @@ export function HeroSection() {
             Stay Safe. <span className="text-secondary">Stay Connected.</span>
           </h1>
           <p className="text-xl text-muted-foreground text-balance max-w-3xl mx-auto mb-8">
-            Join the community-driven safety network that keeps you protected with real-time SOS alerts, AI-powered
-            safety insights, and smart route recommendations.
+            Join South Africa's community-driven safety network that keeps you protected with real-time SOS alerts, 
+            AI-powered safety insights, and smart route recommendations across all major cities.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -34,7 +34,7 @@ export function HeroSection() {
           <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>50K+ Active Users</span>
+              <span>12K+ Active Users</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-secondary rounded-full" />
