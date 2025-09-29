@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { NewsletterSignup } from "@/components/ui/newsletter-signup"
 import { Shield, Mail, Twitter, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react"
 
 const footerLinks = {
@@ -50,19 +51,7 @@ export function Footer() {
                 Get the latest safety tips, product updates, and community insights delivered to your inbox.
               </p>
             </div>
-            <div className="flex gap-2">
-              <div className="relative flex-1">
-                <Mail className="absolute left-3 top-3 h-4 w-4 text-primary-foreground/60" />
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="pl-10 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
-                />
-              </div>
-              <Button variant="secondary" className="bg-secondary hover:bg-secondary/90">
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
+            <NewsletterSignup />
           </div>
         </div>
 

@@ -8,6 +8,7 @@ import { ComingSoonSection } from "@/components/coming-soon-section"
 import { DownloadSection } from "@/components/download-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { BackToTop } from "@/components/ui/back-to-top"
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   )
 }

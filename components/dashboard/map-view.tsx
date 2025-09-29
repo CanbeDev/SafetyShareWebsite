@@ -4,9 +4,12 @@ import { Badge } from "@/components/ui/badge"
 import { MapPin, AlertTriangle, Users, Maximize2 } from "lucide-react"
 
 const alerts = [
-  { id: 1, lat: -26.2041, lng: 28.0473, type: "emergency", severity: "high" },
-  { id: 2, lat: -26.1367, lng: 28.0835, type: "incident", severity: "medium" },
-  { id: 3, lat: -26.1715, lng: 28.0293, type: "safety", severity: "low" },
+  { id: 1, lat: -26.1076, lng: 28.0567, type: "emergency", severity: "high", location: "Sandton City" },
+  { id: 2, lat: -26.1467, lng: 28.0436, type: "incident", severity: "medium", location: "Rosebank Mall" },
+  { id: 3, lat: -26.1715, lng: 28.0293, type: "safety", severity: "low", location: "Melville" },
+  { id: 4, lat: -26.2041, lng: 28.0473, type: "emergency", severity: "high", location: "Maboneng" },
+  { id: 5, lat: -26.1906, lng: 28.0436, type: "crime", severity: "high", location: "Hillbrow" },
+  { id: 6, lat: -26.0112, lng: 28.0024, type: "safety", severity: "low", location: "Fourways Mall" },
 ]
 
 export function MapView() {
@@ -36,13 +39,14 @@ export function MapView() {
           {alerts.map((alert) => (
             <div
               key={alert.id}
-              className={`absolute w-4 h-4 rounded-full border-2 border-white shadow-lg animate-pulse ${
+              className={`absolute w-4 h-4 rounded-full border-2 border-white shadow-lg animate-pulse cursor-pointer hover:scale-125 transition-transform ${
                 alert.severity === "high" ? "bg-accent" : alert.severity === "medium" ? "bg-yellow-500" : "bg-secondary"
               }`}
               style={{
-                left: `${20 + alert.id * 25}%`,
-                top: `${30 + alert.id * 15}%`,
+                left: `${15 + (alert.lat + 26.2) * 200}%`,
+                top: `${20 + (alert.lng - 28.0) * 150}%`,
               }}
+              title={`${alert.type} - ${alert.location}`}
             />
           ))}
 

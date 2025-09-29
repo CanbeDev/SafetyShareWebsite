@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Shield, Users, Brain, Zap, Globe, Lock } from "lucide-react"
 
 const highlights = [
@@ -124,15 +125,27 @@ export function AboutSection() {
             <div className="bg-gradient-to-br from-secondary/10 via-accent/5 to-primary/10 rounded-2xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="font-space-grotesk font-bold text-3xl text-secondary mb-2">25+</div>
+                  <AnimatedCounter 
+                    end={25} 
+                    suffix="+" 
+                    className="font-space-grotesk font-bold text-3xl text-secondary mb-2"
+                  />
                   <div className="text-sm text-muted-foreground">SA Cities Covered</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-space-grotesk font-bold text-3xl text-accent mb-2">12K+</div>
+                  <AnimatedCounter 
+                    end={12000} 
+                    suffix="+" 
+                    className="font-space-grotesk font-bold text-3xl text-accent mb-2"
+                  />
                   <div className="text-sm text-muted-foreground">Lives Protected</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-space-grotesk font-bold text-3xl text-primary mb-2">99.9%</div>
+                  <AnimatedCounter 
+                    end={99.9} 
+                    suffix="%" 
+                    className="font-space-grotesk font-bold text-3xl text-primary mb-2"
+                  />
                   <div className="text-sm text-muted-foreground">Uptime</div>
                 </div>
                 <div className="text-center">

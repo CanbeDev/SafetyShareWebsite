@@ -1,9 +1,19 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Shield, Crown, Zap, Users } from "lucide-react"
 import Link from "next/link"
 
 export function PremiumHero() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-secondary/10 via-background to-accent/5 pt-20">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
@@ -42,7 +52,11 @@ export function PremiumHero() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary/10 rounded-full mb-4">
                 <Zap className="h-8 w-8 text-secondary" />
               </div>
-              <div className="font-space-grotesk font-bold text-3xl text-secondary mb-2">&lt; 30s</div>
+              {mounted ? (
+                <div className="font-space-grotesk font-bold text-3xl text-secondary mb-2">&lt; 30s</div>
+              ) : (
+                <div className="h-9 w-16 bg-muted animate-pulse rounded mx-auto mb-2"></div>
+              )}
               <div className="text-sm text-muted-foreground">Professional Response Time</div>
             </div>
             
@@ -50,7 +64,15 @@ export function PremiumHero() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
                 <Shield className="h-8 w-8 text-accent" />
               </div>
-              <div className="font-space-grotesk font-bold text-3xl text-accent mb-2">85+</div>
+              {mounted ? (
+                <AnimatedCounter 
+                  end={85} 
+                  suffix="+" 
+                  className="font-space-grotesk font-bold text-3xl text-accent mb-2"
+                />
+              ) : (
+                <div className="h-9 w-16 bg-muted animate-pulse rounded mx-auto mb-2"></div>
+              )}
               <div className="text-sm text-muted-foreground">SA Partner Security Companies</div>
             </div>
             
@@ -58,7 +80,15 @@ export function PremiumHero() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
                 <Users className="h-8 w-8 text-primary" />
               </div>
-              <div className="font-space-grotesk font-bold text-3xl text-primary mb-2">3.2K+</div>
+              {mounted ? (
+                <AnimatedCounter 
+                  end={3200} 
+                  suffix="+" 
+                  className="font-space-grotesk font-bold text-3xl text-primary mb-2"
+                />
+              ) : (
+                <div className="h-9 w-16 bg-muted animate-pulse rounded mx-auto mb-2"></div>
+              )}
               <div className="text-sm text-muted-foreground">Premium Members Protected</div>
             </div>
           </div>

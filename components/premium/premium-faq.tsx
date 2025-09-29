@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ChevronDown, ChevronUp, HelpCircle, Search } from "lucide-react"
 
 const faqs = [
   {
@@ -42,10 +43,21 @@ const faqs = [
 
 export function PremiumFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [searchQuery, setSearchQuery] = useState("")
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
+
+  const filteredFAQs = useMemo(() => {
+    if (!searchQuery.trim()) return faqs
+    
+    return faqs.filter(
+      (faq) =>
+        faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  }, [searchQuery])
 
   return (
     <section className="py-24 bg-muted/30">
@@ -57,13 +69,31 @@ export function PremiumFAQ() {
           <h2 className="font-space-grotesk font-bold text-3xl sm:text-4xl text-balance mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto mb-8">
             Get answers to common questions about SafetyShare Premium and our professional security services.
           </p>
+          
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="relative">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search FAQs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {filteredFAQs.length === 0 ? (
+            <div className="text-center py-8">
+              <p className="text-muted-foreground">No FAQs found matching your search.</p>
+            </div>
+          ) : (
+            filteredFAQs.map((faq, index) => (
             <Card key={index} className="border-border/50 overflow-hidden">
               <CardContent className="p-0">
                 <Button
@@ -88,7 +118,8 @@ export function PremiumFAQ() {
                 )}
               </CardContent>
             </Card>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Still have questions CTA */}

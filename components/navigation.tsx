@@ -6,6 +6,16 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Shield, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
+const smoothScroll = (targetId: string) => {
+  const element = document.getElementById(targetId.replace('#', ''))
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
+}
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -24,15 +34,21 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <button 
+              onClick={() => smoothScroll('features')}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               Features
-            </Link>
+            </button>
             <Link href="/premium" className="text-muted-foreground hover:text-foreground transition-colors">
               Premium
             </Link>
-            <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+            <button 
+              onClick={() => smoothScroll('about')}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               About
-            </Link>
+            </button>
             <Link href="/security-partners" className="text-muted-foreground hover:text-foreground transition-colors">
               Partners
             </Link>
@@ -82,13 +98,15 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-border">
-              <Link
-                href="#features"
-                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                onClick={toggleMenu}
+              <button
+                onClick={() => {
+                  smoothScroll('features')
+                  toggleMenu()
+                }}
+                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors text-left w-full"
               >
                 Features
-              </Link>
+              </button>
               <Link
                 href="/premium"
                 className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -96,13 +114,15 @@ export function Navigation() {
               >
                 Premium
               </Link>
-              <Link
-                href="#about"
-                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
-                onClick={toggleMenu}
+              <button
+                onClick={() => {
+                  smoothScroll('about')
+                  toggleMenu()
+                }}
+                className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors text-left w-full"
               >
                 About
-              </Link>
+              </button>
               <Link
                 href="/security-partners"
                 className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"

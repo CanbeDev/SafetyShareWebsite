@@ -22,9 +22,9 @@ export function DashboardHeader() {
             </Link>
             <div className="hidden sm:block w-px h-6 bg-border" />
             <div className="hidden sm:block">
-              <h1 className="font-semibold text-lg">Security Dashboard</h1>
+              <h1 className="font-semibold text-lg">Johannesburg Security Dashboard</h1>
               <Badge variant="secondary" className="text-xs">
-                Live Monitoring
+                Live Monitoring - SAST
               </Badge>
             </div>
           </div>
@@ -54,7 +54,7 @@ export function DashboardHeader() {
                 </div>
                 <div className="text-sm">
                   <div className="font-medium">Security Admin</div>
-                  <div className="text-muted-foreground text-xs">admin@company.com</div>
+                  <div className="text-muted-foreground text-xs">admin@safetyshare.co.za</div>
                 </div>
               </div>
               <Button variant="ghost" size="sm" asChild>
